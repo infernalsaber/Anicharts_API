@@ -1,7 +1,10 @@
 name: Update the json with the latest anime charts
 on:
+    push:
+        branches:
+            - master
     schedule:
-        - cron: '0 0 * * *'
+        - cron: '0 10 * * *'
 jobs:
     build:
         runs-on: ubuntu-latest
