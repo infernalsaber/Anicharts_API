@@ -29,10 +29,14 @@ options = [
     "--ignore-certificate-errors",
     "--disable-dev-shm-usage", 
     "--incognito", 
+    "--no-sandbox",
+    # "--"
 ]
 
 for option in options:
     opts.add_argument(option)
+
+opts.add_experimental_option('excludeSwitches', ['enable-logging'])
 
 logging.info("Opening the browser")
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=opts)
