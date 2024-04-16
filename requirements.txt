@@ -1,3 +1,1 @@
-selenium
-webdriver-manager
-# https://dev.to/delrayo/executing-selenium-test-with-pythonpytest-using-github-actions-317c
+requests-html

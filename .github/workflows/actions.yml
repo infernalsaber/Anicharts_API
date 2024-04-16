@@ -17,8 +17,10 @@ jobs:
                 python-version: 3.x
             - name: Python Dependency Installation
               uses: py-actions/py-dependency-install@v4
-            - name: Run the python script
-              run: python3 src/at_ac_updates.py
+            - name: Run the python scripts
+              run: |
+                python3 src/anitrendz.py
+                python3 src/animecorner.py
             - name: Commit the changes
               run: |
                 git config --global user.name 'infernalsaber'
