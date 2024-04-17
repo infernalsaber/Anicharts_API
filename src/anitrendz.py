@@ -11,7 +11,7 @@ r = session.get("https://www.anitrendz.com/")
 print("Rendering webpage...")
 r.html.render(scrolldown=True, sleep=0.5, timeout=10)
 img = r.html.find('#simple-tabpanel-0 > div > a > img')
-
+print(img)
 img_url = f"https://www.anitrendz.com{img[0].attrs['src']}"
 print(img_url)
 
