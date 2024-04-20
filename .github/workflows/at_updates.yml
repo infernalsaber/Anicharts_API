@@ -1,0 +1,38 @@
+name: Update the json with the latest anime charts
+on:
+    push:
+        branches:
+            - master
+    schedule:
+        - cron: '0 0,6,12,18 * * 0'
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout the repository
+              uses: actions/checkout@v4.1.2
+            - name: Setup Python
+              uses: actions/setup-python@v5.1.0
+              with:
+                python-version: '3.10'
+            - name: Python Dependency Installation
+              uses: py-actions/py-dependency-install@v4
+            - name: Install chromium
+              run: |
+                sudo apt -f install -y  
+                sudo apt-get install -y wget
+                wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+                sudo apt-get install ./google-chrome-stable_current_amd64.deb -y
+                # sudo rm /var/cache/apt/archives/chromium*
+                # sudo apt-get install chromium-browser
+                # sudo cp /usr/lib/chromium-browser/chromedriver /usr/bin
+
+            - name: Run the python scripts
+              run: |
+                python3 src/anitrendz.py
+            - name: Commit the changes
+              run: |
+                git config --local user.name 'infernalsaber'
+                git config --local user.email '72517486+infernalsaber@users.noreply.github.com'
+                git commit -am "Scheduled update"
+                git push
