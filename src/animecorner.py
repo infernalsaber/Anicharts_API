@@ -15,7 +15,7 @@ new_url = r.html.find('div.content-list-right.content-list-center > div.header-l
 print("Opening the top chart")
 r = session.get(new_url)
 
-ac_url = r.html.find("#penci-post-entry-inner > figure.wp-block-image.size-full > img")[0].attrs['src']
+ac_url = r.html.find("#penci-post-entry-inner")[0].find('img')[0].attrs['src']
 print(ac_url)
 
 ac_time = datetime.datetime.now().timestamp()
