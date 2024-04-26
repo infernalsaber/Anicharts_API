@@ -98,8 +98,8 @@
     },
     "26-04-2024": {
         "animecorner": {
-            "image_url": "https://static.animecorner.me/2024/04/1713533726-66230.png",
-            "last_updated_utc": 1714134349
+            "image_url": "data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201200%201800'%3E%3C/svg%3E",
+            "last_updated_utc": 1714155431
         },
         "anitrendz": {}
     }
